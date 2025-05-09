@@ -1,0 +1,12 @@
+{
+  "name": "ltl-freight-calculator",
+  "version": "1.0.0",
+  "description": "LTL Freight Class Calculator based on NMFC standards",
+  "private": true,
+  "scripts": {
+    "start": "serve ."
+  },
+  "dependencies": {
+    "serve": "^14.2.1"
+  }
+} 
