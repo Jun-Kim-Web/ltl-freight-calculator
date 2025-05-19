@@ -12,273 +12,100 @@
     <meta name="description" content="Free LTL Freight Class Calculator based on NMFC standards. Calculate your freight class instantly with dimensions and weight. Perfect for shipping, logistics, and freight professionals.">
     <meta name="keywords" content="LTL freight class calculator, NMFC calculator, freight class calculator, shipping calculator, logistics calculator, freight classification, LTL shipping, NMFC standards">
     <meta name="author" content="LTL Freight Calculator">
-    <meta name="robots" content="index, follow, max-image-preview:large">
-    <meta name="googlebot" content="index, follow">
+    <meta name="robots" content="index, follow">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://ltlfreightcalc.com">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="LTL Freight Class Calculator | Free NMFC Classification Tool">
-    <meta property="og:description" content="Calculate your LTL freight class based on NMFC standards. Free online calculator for shipping and logistics professionals.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ltlfreightcalc.com">
-    <meta property="og:site_name" content="LTL Freight Calculator">
-    <meta property="og:image" content="https://ltlfreightcalc.com/og-image.png">
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="LTL Freight Class Calculator | Free NMFC Classification Tool">
-    <meta name="twitter:description" content="Calculate your LTL freight class based on NMFC standards. Free online calculator for shipping and logistics professionals.">
-    <meta name="twitter:image" content="https://ltlfreightcalc.com/twitter-image.png">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "LTL Freight Class Calculator",
-        "description": "Free online calculator for determining LTL freight class based on NMFC standards",
-        "url": "https://ltlfreightcalc.com",
-        "applicationCategory": "BusinessApplication",
-        "operatingSystem": "Any",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-        }
-    }
-    </script>
-    
     <link rel="stylesheet" href="style.css">
-    <!-- Google Adsense 메타 태그 (실제 사용시 XXXX 부분 교체) -->
-    <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX">
 </head>
 <body>
     <div class="container">
-        <!-- 계산기 설명 -->
         <div class="description">
             <h1>LTL Freight Class Calculator</h1>
-            <p>Calculate your LTL freight class based on NMFC standards. Enter dimensions in inches and weight in pounds. This free tool helps shipping and logistics professionals determine the correct freight class for their shipments.</p>
+            <p class="subtitle">Your Free Tool for Accurate Freight Classification</p>
         </div>
 
-        <!-- 입력 폼 -->
-        <div class="calculator">
-            <div class="input-group">
-                <label for="length">Length (in):</label>
-                <input type="number" id="length" placeholder="e.g., 48">
-            </div>
-            <div class="input-group">
-                <label for="width">Width (in):</label>
-                <input type="number" id="width" placeholder="e.g., 40">
-            </div>
-            <div class="input-group">
-                <label for="height">Height (in):</label>
-                <input type="number" id="height" placeholder="e.g., 36">
-            </div>
-            <div class="input-group">
-                <label for="weight">Weight (lbs):</label>
-                <input type="number" id="weight" placeholder="e.g., 500">
-            </div>
-            <button onclick="calculateFreightClass()">Calculate Class</button>
-        </div>
-
-        <!-- 결과 표시 -->
-        <div id="result" class="result"></div>
-
-        <!-- 광고 영역 -->
-        <div class="ad-container">
-            <div class="ad-content">
-                <h3>💡 Pro Tip</h3>
-                <p>Understanding your freight class is crucial for accurate shipping costs. Our calculator uses the latest NMFC standards to ensure precise classification.</p>
-                <div class="ad-space">
-                    <!-- Google Adsense 코드 삽입 위치 -->
-                    <p class="ad-label">Advertisement</p>
+        <div class="main-content">
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h2>Calculate Your Freight Class Instantly</h2>
+                    <p>Our free calculator helps shipping and logistics professionals determine the correct freight class based on NMFC standards. Simply enter your shipment's dimensions and weight to get started.</p>
+                    <a href="calculator.html" class="cta-button">Start Calculating Now</a>
                 </div>
-            </div>
-        </div>
+            </section>
 
-        <!-- 계산 기록 -->
-        <div class="history">
-            <h3>📝 Calculation History</h3>
-            <p class="history-description">Your calculation history is automatically saved and displayed in the table below. You can copy the history as text or reset it at any time.</p>
-            <div class="history-actions">
-                <button onclick="resetHistory()" class="reset-btn">Reset All</button>
-                <button onclick="copyHistory()" class="copy-btn">Copy as Text</button>
-            </div>
-            <div class="history-table-container">
-                <table id="historyTable">
-                    <thead>
-                        <tr>
-                            <th>No.</th>
-                            <th>Input (LxWxH, lbs)</th>
-                            <th>Volume (ft³)</th>
-                            <th>Density (lbs/ft³)</th>
-                            <th>Class</th>
-                        </tr>
-                    </thead>
-                    <tbody id="historyBody"></tbody>
-                </table>
-            </div>
-        </div>
+            <section class="features">
+                <h2>Key Features</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h3>📏 Accurate Calculations</h3>
+                        <p>Based on the latest NMFC standards for precise freight classification</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>⚡ Instant Results</h3>
+                        <p>Get your freight class immediately with our easy-to-use calculator</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>📊 History Tracking</h3>
+                        <p>Save and review your calculation history for future reference</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>💡 Pro Tips</h3>
+                        <p>Access helpful information about freight classification and shipping</p>
+                    </div>
+                </div>
+            </section>
 
-        <!-- LTL Class 설명 -->
-        <div class="ltl-guide">
-            <h2>📋 Complete LTL Freight Class Chart (NMFC Standards)</h2>
-            
-            <div class="class-table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Class</th>
-                            <th>Density (lbs/ft³)</th>
-                            <th>Examples</th>
-                            <th>Calculation Range</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-              <!-- 계산기에 실제 사용되는 Class (50-400) -->
-                <tr class="highlight">
-                    <td>Class 50</td>
-                    <td>≥ 50</td>
-                    <td>Bricks, steel plates</td>
-                    <td>Density ≥ 50</td>
-                </tr>
-                <tr class="highlight">
-                    <td>Class 55</td>
-                    <td>35 - 50</td>
-                    <td>Machinery parts</td>
-                    <td>35 ≤ Density < 50</td>
-                </tr>
-                <tr class="highlight">
-                    <td>Class 60</td>
-                    <td>30 - 35</td>
-                    <td>Car parts</td>
-                    <td>30 ≤ Density < 35</td>
-                </tr>
-                <tr class="highlight">
-                    <td>Class 65</td>
-                    <td>22.5 - 30</td>
-                    <td>Auto transmissions</td>
-                    <td>22.5 ≤ Density < 30</td>
-                </tr>
-                <tr class="highlight">
-                    <td>Class 70</td>
-                    <td>15 - 22.5</td>
-                    <td>Carpet rolls</td>
-                    <td>15 ≤ Density < 22.5</td>
-                </tr>
-                <tr class="highlight">
-                    <td>Class 77.5</td>
-                    <td>13.5 - 15</td>
-                    <td>Tires</td>
-                    <td>13.5 ≤ Density < 15</td>
-                </tr>
-                <tr class="highlight">
-                    <td>Class 85</td>
-                    <td>12 - 13.5</td>
-                    <td>Cast iron stoves</td>
-                    <td>12 ≤ Density < 13.5</td>
-                </tr>
-                <tr class="highlight">
-                    <td>Class 92.5</td>
-                    <td>10.5 - 12</td>
-                    <td>Computers</td>
-                    <td>10.5 ≤ Density < 12</td>
-                </tr>
-                <tr class="highlight">
-                    <td>Class 100</td>
-                    <td>9 - 10.5</td>
-                    <td>Furniture</td>
-                    <td>9 ≤ Density < 10.5</td>
-                </tr>
-                <tr class="highlight">
-                    <td>Class 110</td>
-                    <td>8 - 9</td>
-                    <td>Ceramic tiles</td>
-                    <td>8 ≤ Density < 9</td>
-                </tr>
-                <tr class="highlight">
-                    <td>Class 125</td>
-                    <td>7 - 8</td>
-                    <td>Wine cases</td>
-                    <td>7 ≤ Density < 8</td>
-                </tr>
-                <tr class="highlight">
-                    <td>Class 150</td>
-                    <td>6 - 7</td>
-                    <td>Auto body parts</td>
-                    <td>6 ≤ Density < 7</td>
-                </tr>
-                <tr class="highlight">
-                    <td>Class 175</td>
-                    <td>5 - 6</td>
-                    <td>Mattresses</td>
-                    <td>5 ≤ Density < 6</td>
-                </tr>
-                <tr class="highlight">
-                    <td>Class 200</td>
-                    <td>4 - 5</td>
-                    <td>Lampshades</td>
-                    <td>4 ≤ Density < 5</td>
-                </tr>
-                <tr class="highlight">
-                    <td>Class 250</td>
-                    <td>3 - 4</td>
-                    <td>Fish tanks</td>
-                    <td>3 ≤ Density < 4</td>
-                </tr>
-                <tr class="highlight">
-                    <td>Class 300</td>
-                    <td>2 - 3</td>
-                    <td>Empty barrels</td>
-                    <td>2 ≤ Density < 3</td>
-                </tr>
-                <tr class="highlight">
-                    <td>Class 400</td>
-                    <td>1 - 2</td>
-                    <td>Ping pong balls</td>
-                    <td>1 ≤ Density < 2</td>
-                </tr>
-                <!-- 특수 Class (계산기에는 미포함) -->
-                <tr>
-                    <td>Class 500</td>
-                    <td>&lt; 1</td>
-                    <td>Empty containers</td>
-                    <td>Manual classification</td>
-                </tr>
-                    </tbody>
-                </table>
-            </div>
+            <section class="how-it-works">
+                <h2>How It Works</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Enter Dimensions</h3>
+                        <p>Input your shipment's length, width, and height in inches</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Add Weight</h3>
+                        <p>Specify the weight of your shipment in pounds</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Get Results</h3>
+                        <p>Receive your freight class and density calculation instantly</p>
+                    </div>
+                </div>
+            </section>
 
-            <div class="notes">
-                <h3>🔍 Important Notes</h3>
-                <ul>
-                    <li>This calculator automatically determines freight classes from 50 to 400 based on your input dimensions and weight.</li>
-                    <li>Class 500 (density less than 1 lb/ft³) requires manual assessment as it involves special handling considerations.</li>
-                    <li>The highlighted rows in the table above show the density ranges used for automatic classification.</li>
+            <section class="benefits">
+                <h2>Why Use Our Calculator?</h2>
+                <ul class="benefits-list">
+                    <li>✅ Free to use - no hidden costs</li>
+                    <li>✅ No registration required</li>
+                    <li>✅ Works on all devices</li>
+                    <li>✅ Saves calculation history</li>
+                    <li>✅ Based on official NMFC standards</li>
+                    <li>✅ Instant results</li>
                 </ul>
-            </div>
+            </section>
 
-            <div class="official-sources">
-                <h3>📚 Official Resources</h3>
-                <ul>
-                    <li><a href="https://www.nmfta.org" target="_blank">National Motor Freight Traffic Association (NMFTA)</a> - The official organization that establishes freight classification standards</li>
-                    <li><a href="https://www.fmc.gov" target="_blank">Federal Maritime Commission (FMC)</a> - U.S. government agency regulating international ocean transportation</li>
-                    <li><a href="https://www.ttclub.com" target="_blank">TT Club</a> - International transport and logistics insurance provider</li>
-                </ul>
-            </div>
+            <section class="cta-section">
+                <h2>Ready to Calculate Your Freight Class?</h2>
+                <p>Start using our free calculator now and get accurate freight classification in seconds.</p>
+                <a href="calculator.html" class="cta-button">Go to Calculator</a>
+            </section>
         </div>
     </div>
+
     <footer class="footer">
         <div class="footer-content">
             <a href="privacy-policy.html">Privacy Policy</a>
         </div>
     </footer>
-    <script src="script.js"></script>
 </body>
-</html>
+</html> 
