@@ -6,7 +6,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="theme-color" content="#1a237e">
     <title>LTL Freight Class Calculator | Free NMFC Classification Tool</title>
-    <meta name="domain" content="ltlfreightcalc.com">
+    <meta name="domain" content="ltlclasscalc.com">
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="Free LTL Freight Class Calculator based on NMFC standards. Calculate your freight class instantly with dimensions and weight. Perfect for shipping, logistics, and freight professionals.">
@@ -16,25 +16,25 @@
     <meta name="googlebot" content="index, follow">
     
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://ltlfreightcalc.com">
+    <link rel="canonical" href="https://ltlclasscalc.com">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="LTL Freight Class Calculator | Free NMFC Classification Tool">
     <meta property="og:description" content="Calculate your LTL freight class based on NMFC standards. Free online calculator for shipping and logistics professionals.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ltlfreightcalc.com">
+    <meta property="og:url" content="https://ltlclasscalc.com">
     <meta property="og:site_name" content="LTL Freight Calculator">
-    <meta property="og:image" content="https://ltlfreightcalc.com/og-image.png">
+    <!-- <meta property="og:image" content="https://ltlclasscalc.com/og-image.png"> -->
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="LTL Freight Class Calculator | Free NMFC Classification Tool">
     <meta name="twitter:description" content="Calculate your LTL freight class based on NMFC standards. Free online calculator for shipping and logistics professionals.">
-    <meta name="twitter:image" content="https://ltlfreightcalc.com/twitter-image.png">
+    <!-- <meta name="twitter:image" content="https://ltlclasscalc.com/twitter-image.png"> -->
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -43,7 +43,7 @@
         "@type": "WebApplication",
         "name": "LTL Freight Class Calculator",
         "description": "Free online calculator for determining LTL freight class based on NMFC standards",
-        "url": "https://ltlfreightcalc.com",
+        "url": "https://ltlclasscalc.com",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Any",
         "offers": {
@@ -55,8 +55,8 @@
     </script>
     
     <link rel="stylesheet" href="style.css">
-    <!-- Google Adsense 메타 태그 (실제 사용시 XXXX 부분 교체) -->
-    <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX">
+    <!-- Google Adsense 메타 태그 (실제 사용시 아래 주석을 해제하고 계정 ID를 입력하세요) -->
+    <!-- <meta name="google-adsense-account" content="ca-pub-YOUR_ADSENSE_ID"> -->
 </head>
 <body>
     <div class="container">
@@ -84,7 +84,7 @@
                 <label for="weight">Weight (lbs):</label>
                 <input type="number" id="weight" placeholder="e.g., 500">
             </div>
-            <button onclick="calculateFreightClass()">Calculate Class</button>
+            <button onclick="calculateFreightClass()" aria-label="Calculate freight class">Calculate Class</button>
         </div>
 
         <!-- 결과 표시 -->
@@ -107,8 +107,8 @@
             <h3>📝 Calculation History</h3>
             <p class="history-description">Your calculation history is automatically saved and displayed in the table below. You can copy the history as text or reset it at any time.</p>
             <div class="history-actions">
-                <button onclick="resetHistory()" class="reset-btn">Reset All</button>
-                <button onclick="copyHistory()" class="copy-btn">Copy as Text</button>
+                <button onclick="resetHistory()" class="reset-btn" aria-label="Reset all calculation history">Reset All</button>
+                <button onclick="copyHistory()" class="copy-btn" aria-label="Copy calculation history as text">Copy as Text</button>
             </div>
             <div class="history-table-container">
                 <table id="historyTable">
