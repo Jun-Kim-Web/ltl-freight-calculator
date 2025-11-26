@@ -50,6 +50,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-Your Name - [@yourtwitter](https://twitter.com/yourtwitter)
+LTL Freight Calculator Team - contact@ltlclasscalc.com
 
-Project Link: [https://github.com/yourusername/ltl-freight-calculator](https://github.com/yourusername/ltl-freight-calculator) 
+Project Link: [https://github.com/Jun-Kim-Web/ltl-freight-calculator](https://github.com/Jun-Kim-Web/ltl-freight-calculator) 

@@ -1,15 +1,90 @@
 // 기록 저장 배열
 let history = [];
 
+// 로컬 스토리지에서 기록 불러오기
+function loadHistoryFromStorage() {
+    try {
+        const savedHistory = localStorage.getItem('ltlCalculatorHistory');
+        if (savedHistory) {
+            history = JSON.parse(savedHistory);
+            renderHistoryTable();
+        }
+    } catch (error) {
+        console.warn('Failed to load history from storage:', error);
+        history = [];
+    }
+}
+
+// 로컬 스토리지에 기록 저장
+function saveHistoryToStorage() {
+    try {
+        localStorage.setItem('ltlCalculatorHistory', JSON.stringify(history));
+    } catch (error) {
+        console.warn('Failed to save history to storage:', error);
+    }
+}
+
+// 상수 정의
+const VALIDATION_LIMITS = {
+    MAX_VALUE: 10000,
+    MIN_VALUE: 0.01,
+    MAX_DIMENSION: 1000, // 최대 치수 (인치)
+    MAX_WEIGHT: 10000    // 최대 무게 (파운드)
+};
+
+// LTL Class 기준 (NMFC 표준)
+const FREIGHT_CLASS_RANGES = [
+    { minDensity: 50, class: 50 },
+    { minDensity: 35, class: 55 },
+    { minDensity: 30, class: 60 },
+    { minDensity: 22.5, class: 65 },
+    { minDensity: 15, class: 70 },
+    { minDensity: 13.5, class: 77.5 },
+    { minDensity: 12, class: 85 },
+    { minDensity: 10.5, class: 92.5 },
+    { minDensity: 9, class: 100 },
+    { minDensity: 8, class: 110 },
+    { minDensity: 7, class: 125 },
+    { minDensity: 6, class: 150 },
+    { minDensity: 5, class: 175 },
+    { minDensity: 4, class: 200 },
+    { minDensity: 3, class: 250 },
+    { minDensity: 2, class: 300 },
+    { minDensity: 1, class: 400 }
+];
+
+// 부피 변환 상수 (in³ → ft³)
+const CUBIC_INCHES_PER_CUBIC_FOOT = 1728;
+
 // 입력값 검증 함수
-function validateInput(value, fieldName) {
+function validateInput(value, fieldName, type = 'general') {
     if (isNaN(value) || value <= 0) {
         throw new Error(`Please enter a valid positive number for ${fieldName}`);
     }
-    if (value > 10000) {
-        throw new Error(`${fieldName} value is too large. Maximum value is 10,000`);
+    
+    const maxValue = type === 'dimension' ? VALIDATION_LIMITS.MAX_DIMENSION : 
+                    type === 'weight' ? VALIDATION_LIMITS.MAX_WEIGHT : 
+                    VALIDATION_LIMITS.MAX_VALUE;
+    
+    if (value > maxValue) {
+        throw new Error(`${fieldName} value is too large. Maximum value is ${maxValue.toLocaleString()}`);
     }
+    
+    if (value < VALIDATION_LIMITS.MIN_VALUE) {
+        throw new Error(`${fieldName} value is too small. Minimum value is ${VALIDATION_LIMITS.MIN_VALUE}`);
+    }
+    
     return true;
+}
+
+// LTL Class 결정 함수
+function determineFreightClass(density) {
+    for (const range of FREIGHT_CLASS_RANGES) {
+        if (density >= range.minDensity) {
+            return range.class;
+        }
+    }
+    return 400; // 기본값 (가장 낮은 밀도)
 }
 
 function calculateFreightClass() {
@@ -21,34 +96,17 @@ function calculateFreightClass() {
         const weight = parseFloat(document.getElementById('weight').value);
 
         // 입력값 검증
-        validateInput(length, 'Length');
-        validateInput(width, 'Width');
-        validateInput(height, 'Height');
-        validateInput(weight, 'Weight');
+        validateInput(length, 'Length', 'dimension');
+        validateInput(width, 'Width', 'dimension');
+        validateInput(height, 'Height', 'dimension');
+        validateInput(weight, 'Weight', 'weight');
 
         // 부피 계산 (in³ → ft³ 변환)
-        const volumeInFt3 = (length * width * height) / 1728;
+        const volumeInFt3 = (length * width * height) / CUBIC_INCHES_PER_CUBIC_FOOT;
         const density = weight / volumeInFt3;
 
         // LTL Class 결정 (NMFC 기준)
-        let freightClass;
-        if (density >= 50) freightClass = 50;
-        else if (density >= 35) freightClass = 55;
-        else if (density >= 30) freightClass = 60;
-        else if (density >= 22.5) freightClass = 65;
-        else if (density >= 15) freightClass = 70;
-        else if (density >= 13.5) freightClass = 77.5;
-        else if (density >= 12) freightClass = 85;
-        else if (density >= 10.5) freightClass = 92.5;
-        else if (density >= 9) freightClass = 100;
-        else if (density >= 8) freightClass = 110;
-        else if (density >= 7) freightClass = 125;
-        else if (density >= 6) freightClass = 150;
-        else if (density >= 5) freightClass = 175;
-        else if (density >= 4) freightClass = 200;
-        else if (density >= 3) freightClass = 250;
-        else if (density >= 2) freightClass = 300;
-        else freightClass = 400;
+        const freightClass = determineFreightClass(density);
 
         // 결과 출력
         document.getElementById('result').innerHTML = `
@@ -61,6 +119,7 @@ function calculateFreightClass() {
 
         // 기록 업데이트
         updateHistoryList(length, width, height, weight, volumeInFt3, density, freightClass);
+        saveHistoryToStorage();
     } catch (error) {
         document.getElementById('result').innerHTML = 
             `<p style="color: red;">⚠️ ${error.message}</p>`;
@@ -113,6 +172,7 @@ function resetHistory() {
             history = [];
             const tbody = document.getElementById('historyBody');
             if (tbody) tbody.innerHTML = '';
+            saveHistoryToStorage(); // 로컬 스토리지도 초기화
         }
     } catch (error) {
         console.error('Error resetting history:', error);
@@ -146,10 +206,13 @@ function copyHistory() {
     }
 }
 
-// 페이지 로드 시 입력 필드 초기화
+// 페이지 로드 시 입력 필드 초기화 및 기록 불러오기
 document.addEventListener('DOMContentLoaded', function() {
     const inputs = document.querySelectorAll('input[type="number"]');
     inputs.forEach(input => {
         input.value = '';
     });
+    
+    // 저장된 기록 불러오기
+    loadHistoryFromStorage();
 });
