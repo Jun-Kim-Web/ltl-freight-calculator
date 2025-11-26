@@ -584,6 +584,109 @@ th {
     font-size: 1.1em;
 }
 
+/* SEO Articles Section */
+.seo-articles {
+    margin-top: 4rem;
+    padding: 3rem 0;
+    background: #f8f9fa;
+    border-radius: 12px;
+}
+
+.articles-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.articles-container > h2 {
+    color: #1a237e;
+    font-size: 2em;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.article-card {
+    background: white;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid #1a237e;
+}
+
+.article-card h3 {
+    color: #1a237e;
+    font-size: 1.5em;
+    margin-bottom: 1rem;
+}
+
+.article-card p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+    color: #2c3e50;
+}
+
+.article-card ul,
+.article-card ol {
+    margin: 1rem 0;
+    padding-left: 2rem;
+    line-height: 1.8;
+}
+
+.article-card li {
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.formula-box {
+    background: #e8eaf6;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    border-left: 4px solid #3949ab;
+}
+
+.formula-box p {
+    margin: 0;
+    font-size: 1.1em;
+    color: #1a237e;
+    text-align: center;
+}
+
+.nmfc-table {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.nmfc-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.nmfc-table th {
+    background-color: #1a237e;
+    color: white;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+.nmfc-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.nmfc-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.nmfc-table tr:hover {
+    background-color: #e8eaf6;
+}
+
 @media (max-width: 768px) {
     .hero-content h2 {
         font-size: 1.8em;
@@ -596,5 +699,17 @@ th {
     
     .benefits-list {
         grid-template-columns: 1fr;
+    }
+    
+    .article-card {
+        padding: 1.5rem;
+    }
+    
+    .articles-container > h2 {
+        font-size: 1.5em;
+    }
+    
+    .nmfc-table {
+        font-size: 0.9em;
     }
 }
